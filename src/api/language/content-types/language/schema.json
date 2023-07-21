@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "languages",
+  "info": {
+    "singularName": "language",
+    "pluralName": "languages",
+    "displayName": "language"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "inversedBy": "languages"
+    },
+    "language": {
+      "type": "string"
+    }
+  }
+}

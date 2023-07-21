@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    },
+    "youtubeId": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "string"
+    },
+    "projectURL": {
+      "type": "string"
+    },
+    "coverImage": {
+      "type": "string",
+      "default": "cover",
+      "required": true
+    },
+    "hiringStatus": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "calendly": {
+      "type": "string"
+    },
+    "screenshots": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "projectDescription": {
+      "type": "text"
+    },
+    "aboutMe": {
+      "type": "text"
+    },
+    "behance": {
+      "type": "string"
+    },
+    "project_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-type.project-type",
+      "mappedBy": "students"
+    },
+    "languages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::language.language",
+      "mappedBy": "students"
+    }
+  }
+}
