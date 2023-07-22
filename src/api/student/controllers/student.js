@@ -12,16 +12,27 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
     const { page, pageSize, ...rest_filters } = qs.parse(query);
     const { id: userId } = ctx.state.user;
 
+    const bootcamp = rest_filters?.filters?.bootcamp;
     const languages = rest_filters?.filters?.languages?.id["$in"];
     const project_types = rest_filters?.filters?.project_types?.id["$in"];
     const favorite = rest_filters?.filters?.favorite;
 
+
     const where = {};
+
+    const validBootcamps = new Set(['FSD', 'FSW', 'UIX']);
+    if (bootcamp && validBootcamps.has(bootcamp)) {
+      where.bootcamp = bootcamp ;
+      console.log(bootcamp);
+    }
+
+
     if (favorite) {
       where.favorite_by = {
         id: { $eq: userId },
       };
     }
+
     if (languages && Array.isArray(languages) && languages.length > 0) {
       where.languages = {
         language: { $in: languages },
