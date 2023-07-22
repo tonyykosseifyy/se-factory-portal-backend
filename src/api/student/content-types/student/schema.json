@@ -71,6 +71,12 @@
         "FSD",
         "UIX"
       ]
+    },
+    "favorite_by": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "fav_students"
     }
   }
 }

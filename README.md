@@ -95,3 +95,16 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+
+{
+  filters: {
+    name: "test_user",
+    languages : {
+      id: { $in: 5 }
+    },
+    project_types: {
+      id: { $in: 22 }
+    },
+  },
+}

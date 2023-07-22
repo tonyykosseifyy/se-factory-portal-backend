@@ -16,6 +16,7 @@
     "@strapi/strapi": "4.10.7",
     "better-sqlite3": "8.0.1",
     "mysql": "^2.18.1",
+    "qs": "^6.11.2",
     "strapi-plugin-import-export-entries": "^1.6.9"
   },
   "author": {
