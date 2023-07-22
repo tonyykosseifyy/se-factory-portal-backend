@@ -43,17 +43,6 @@
     "calendly": {
       "type": "string"
     },
-    "screenshots": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "projectDescription": {
       "type": "text"
     },
@@ -74,6 +63,14 @@
       "relation": "manyToMany",
       "target": "api::language.language",
       "mappedBy": "students"
+    },
+    "bootcamp": {
+      "type": "enumeration",
+      "enum": [
+        "FSW",
+        "FSD",
+        "UIX"
+      ]
     }
   }
 }
