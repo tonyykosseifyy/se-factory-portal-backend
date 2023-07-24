@@ -52,11 +52,11 @@
     "behance": {
       "type": "string"
     },
-    "project_types": {
+    "projectTypes": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::project-type.project-type",
-      "mappedBy": "students"
+      "inversedBy": "students"
     },
     "languages": {
       "type": "relation",
@@ -72,7 +72,7 @@
         "UIX"
       ]
     },
-    "favorite_by": {
+    "favoriteBy": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",

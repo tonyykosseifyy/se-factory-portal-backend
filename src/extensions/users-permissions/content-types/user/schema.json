@@ -70,7 +70,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::student.student",
-      "mappedBy": "favorite_by"
+      "mappedBy": "favoriteBy"
     }
   }
 }

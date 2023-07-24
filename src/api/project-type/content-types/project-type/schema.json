@@ -4,20 +4,21 @@
   "info": {
     "singularName": "project-type",
     "pluralName": "project-types",
-    "displayName": "project_type"
+    "displayName": "projectType",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
+    "projectType": {
+      "type": "string"
+    },
     "students": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::student.student",
-      "inversedBy": "project_types"
-    },
-    "project_type": {
-      "type": "string"
+      "mappedBy": "projectTypes"
     }
   }
 }

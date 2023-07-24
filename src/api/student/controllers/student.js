@@ -14,31 +14,30 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
 
     const bootcamp = rest_filters?.filters?.bootcamp;
     const languages = rest_filters?.filters?.languages?.language?.["$in"];
-    const project_types = rest_filters?.filters?.project_types?.project_type?.["$in"];
+    const projectTypes = rest_filters?.filters?.projectTypes?.projectType?.["$in"];
     const favorite = rest_filters?.filters?.favorite;
 
     const where = {};
 
     const validBootcamps = new Set(['FSD', 'FSW', 'UIX']);
+
     if (bootcamp && validBootcamps.has(bootcamp)) {
       where.bootcamp = bootcamp ;
-      console.log(bootcamp);
     }
-
     if (favorite) {
-      where.favorite_by = {
+      where.favoriteBy = {
         id: { $eq: userId },
       };
-    }
+    } 
 
     if (languages && Array.isArray(languages) && languages.length > 0) {
       where.languages = {
         language: { $in: languages },
       };
     }
-    if (project_types && Array.isArray(languages) && project_types.length > 0) {
-      where.project_types = {
-        project_type: { $in: project_types },
+    if (projectTypes && Array.isArray(projectTypes) && projectTypes.length > 0) {
+      where.projectTypes = {
+        projectType: { $in: projectTypes },
       };
     }
     const entries = await strapi.db.query("api::student.student").findMany({
@@ -47,10 +46,10 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
         languages: {
           select: ["id", "language"],
         },
-        project_types: {
-          select: ["id", "project_type"],
+        projectTypes: {
+          select: ["id", "projectType"],
         },
-        favorite_by: {
+        favoriteBy: {
           select: ["id", "username"],
         },
       },
