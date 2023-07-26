@@ -69,7 +69,7 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
           id: { $eq: id },
         },
         data: {
-          favorite_by: {
+          favoriteBy: {
             connect: {
               id: user_id,
             },
@@ -93,7 +93,7 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
           id: { $eq: id },
         },
         data: {
-          favorite_by: {
+          favoriteBy: {
             disconnect: {
               id: user_id,
             },

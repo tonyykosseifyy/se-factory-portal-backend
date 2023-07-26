@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cloud_platforms",
+  "info": {
+    "singularName": "cloud-platform",
+    "pluralName": "cloud-platforms",
+    "displayName": "cloudPlatform",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "cloudPlatform": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "inversedBy": "cloudPlatforms"
+    }
+  }
+}

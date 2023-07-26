@@ -4,7 +4,8 @@
   "info": {
     "singularName": "language",
     "pluralName": "languages",
-    "displayName": "language"
+    "displayName": "language",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +18,9 @@
       "inversedBy": "languages"
     },
     "language": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "database_technologies",
+  "info": {
+    "singularName": "database-technology",
+    "pluralName": "database-technologies",
+    "displayName": "databaseTechnology",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "databaseTechnology": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "mappedBy": "databaseTechnologies"
+    }
+  }
+}

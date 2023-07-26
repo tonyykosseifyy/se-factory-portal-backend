@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_visualization_tools",
+  "info": {
+    "singularName": "data-visualization-tool",
+    "pluralName": "data-visualization-tools",
+    "displayName": "dataVisualizationTool",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "DataVisualizationTool": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::student.student",
+      "inversedBy": "dataVisualizationTools"
+    }
+  }
+}

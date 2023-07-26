@@ -35,11 +35,6 @@
       "default": "cover",
       "required": true
     },
-    "hiringStatus": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
     "calendly": {
       "type": "string"
     },
@@ -77,6 +72,24 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "fav_students"
+    },
+    "databaseTechnologies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::database-technology.database-technology",
+      "inversedBy": "students"
+    },
+    "cloudPlatforms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cloud-platform.cloud-platform",
+      "mappedBy": "students"
+    },
+    "dataVisualizationTools": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::data-visualization-tool.data-visualization-tool",
+      "mappedBy": "students"
     }
   }
 }
