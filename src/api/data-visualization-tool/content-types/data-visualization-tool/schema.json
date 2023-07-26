@@ -11,7 +11,7 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "DataVisualizationTool": {
+    "dataVisualizationTool": {
       "type": "string",
       "required": true,
       "unique": true

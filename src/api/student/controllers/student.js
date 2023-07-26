@@ -3,6 +3,7 @@
  * student controller
  */
 const qs = require("qs");
+
 const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::student.student", ({ strapi }) => ({
@@ -12,12 +13,19 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
     const { page, pageSize, ...rest_filters } = qs.parse(query);
     const { id: userId } = ctx.state.user;
 
+    // common filters 
     const bootcamp = rest_filters?.filters?.bootcamp;
     const languages = rest_filters?.filters?.languages;
     const projectTypes = rest_filters?.filters?.projectTypes;
     const favorite = rest_filters?.filters?.favorite;
 
+    // fsd filters 
+    const databaseTechnologies = rest_filters?.filters?.databaseTechnologies;
+    const cloudPlatforms = rest_filters?.filters?.cloudPlatforms;
+    const dataVisualizationTools = rest_filters?.filters?.dataVisualizationTools;
+
     const where = {};
+    const studentService = strapi.service('api::student.student');
 
 
     const validBootcamps = new Set(['FSD', 'FSW', 'UIX']);
@@ -31,16 +39,35 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
       };
     } 
 
-    if (languages && Array.isArray(languages) && languages.length > 0) {
+    if (studentService.isValidArray(languages)) {
       where.languages = {
         language: { $in: languages },
       };
     }
-    if (projectTypes && Array.isArray(projectTypes) && projectTypes.length > 0) {
+    if (studentService.isValidArray(projectTypes)) {
       where.projectTypes = {
         projectType: { $in: projectTypes },
       };
     }
+    if (where.bootcamp && where.bootcamp === 'FSD') {
+      if (studentService.isValidArray(databaseTechnologies)) {
+        where.databaseTechnologies = {
+          databaseTechnology: { $in: databaseTechnologies },
+        };
+      }
+      if (studentService.isValidArray(cloudPlatforms)) {
+        where.cloudPlatforms = {
+          cloudPlatform: { $in: cloudPlatforms },
+        };
+      }
+      if (studentService.isValidArray(dataVisualizationTools)) {
+        where.dataVisualizationTools = {
+          dataVisualizationTool: { $in: dataVisualizationTools },
+        };
+      }
+    }
+
+
     console.log(rest_filters.filters)
     console.log(where);
     const entries = await strapi.db.query("api::student.student").findMany({
@@ -55,6 +82,15 @@ module.exports = createCoreController("api::student.student", ({ strapi }) => ({
         favoriteBy: {
           select: ["id", "username"],
         },
+        databaseTechnologies: {
+          select: ["id", "databaseTechnology"],
+        },
+        cloudPlatforms: {
+          select: ["id", "cloudPlatform"],
+        },
+        dataVisualizationTools: {
+          select: ["id", "dataVisualizationTool"],
+        }
       },
     });
     return entries;
