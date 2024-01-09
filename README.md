@@ -5,6 +5,28 @@ This documentation extends the backend API routes for the Strapi-based project, 
 
 ## API Endpoints
 
+### Student Routes
+- **Filter Students**
+  - `GET /students/filter`
+  - Description: Retrieve students based on applied filters.
+
+- **Add Student to Favorites**
+  - `POST /students/addFavorite/:id`
+  - Description: Add a student to favorites list using their ID.
+
+- **Remove Student from Favorites**
+  - `DELETE /students/deleteFavorite/:id`
+  - Description: Remove a student from favorites list using their ID.
+
+### Project Type Routes
+- **Get All Project Types**
+  - `GET /project-types`
+  - Description: Retrieve all project types.
+
+- **Get Project Type by ID**
+  - `GET /project-types/:id`
+  - Description: Retrieve a specific project type by ID.
+  
 ### Language Routes
 - **Get All Languages**
   - `GET /languages`
