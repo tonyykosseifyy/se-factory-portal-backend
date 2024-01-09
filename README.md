@@ -66,31 +66,4 @@ This documentation extends the backend API routes for the Strapi-based project, 
 ## Built With
 - [Strapi](https://strapi.io/) - Open source headless CMS.
 
-## Repository Link
-For more details and the source code, visit the [GitHub Repository](https://github.com/link-to-backend-repo).
-
-
-### `develop`
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-```
-npm run build
-# or
-yarn build
-```
-
 
