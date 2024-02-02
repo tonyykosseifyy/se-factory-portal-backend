@@ -92,9 +92,9 @@ This will start the Strapi backend in development mode, allowing you to access t
 
 ## Built With
 
-- **Strapi**: An open-source headless CMS, serving as the backend framework.
-- **JavaScript**: The primary programming language for backend logic.
-- **Auth0**: Provides authentication and authorization services to secure API endpoints and manage user access.
+- ![Strapi](https://img.shields.io/badge/Strapi-8E75FF.svg?style=for-the-badge&logo=strapi&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+- ![Auth0](https://img.shields.io/badge/Auth0-%23EB5424.svg?style=for-the-badge&logo=auth0&logoColor=white)
 
 For additional information or inquiries, please contact the development team or refer to the Strapi documentation for further guidance on managing and extending the API.
 
